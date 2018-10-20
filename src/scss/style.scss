@@ -1,0 +1,40 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #5EC4CD;
+
+  .todo-app {
+    width: 40%;
+    height: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,1);
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,1);
+    background: #ffffff;
+
+    //  -------------------------
+    //  create block
+    //  -------------------------
+
+    //  -------------------------
+    //  list block
+    //  -------------------------
+    .list-tasks {
+
+      // -------------------------
+      //  task block
+      //  -------------------------
+      .task-block {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+
+        .title-task {
+          margin: 0 0 0 10px;
+        }
+      }
+    }
+  }
+}
