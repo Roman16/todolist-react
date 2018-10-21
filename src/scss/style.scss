@@ -1,23 +1,41 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #5EC4CD;
 
   .todo-app {
     width: 40%;
     height: 100%;
     margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,1);
-    box-shadow: 0px 0px 20px 5px rgba(0,0,0,1);
-    background: #ffffff;
+
+    .btn {
+      width: 60px;
+      padding: 5px 10px;
+      background: #ffffff;
+      border: 1px solid #545454;
+    }
+
+    .d-flex {
+      display: flex;
+    }
 
     //  -------------------------
     //  create block
     //  -------------------------
+    .create-block {
+      display: flex;
+      justify-content: space-between;
+      background: #ffffff;
+      border-radius: 10px 10px 0 0;
+      padding: 20px 10px;
+      -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+      -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
 
+      input {
+        width: 85%;
+        margin-right: auto;
+      }
+    }
     //  -------------------------
     //  list block
     //  -------------------------
@@ -29,10 +47,31 @@ html, body {
       .task-block {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin: 10px 0;
+        padding: 10px;
+        background: #ffffff;
+        -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+
+        &:last-child {
+          border-radius: 0 0 10px 10px;
+        }
 
         .title-task {
           margin: 0 0 0 10px;
+        }
+
+        .finished-task {
+          text-decoration:line-through;
+        }
+
+        .button-block {
+          display: flex;
+          .btn {
+            margin: 0 0 0 10px;
+          }
         }
       }
     }
