@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
 import CreateTodo from './CreateTodo';
-import TodosList from "./TodosList";
+import TodosList from './TodosList';
+import axios from 'axios';
 
 const update = require('immutability-helper');
 
@@ -76,6 +77,8 @@ class App extends Component {
     };
 
     componentDidMount() {
+        axios.get('http://localhost:8080/api/');
+
         let pastList = JSON.parse(localStorage.getItem('todoList')) || [];
 
         this.setState({

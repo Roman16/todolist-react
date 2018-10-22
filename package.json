@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
     "immutability-helper": "^2.8.1",
     "lodash.flow": "^3.5.0",
+    "mongose": "0.0.2-security",
     "node-sass": "^4.9.4",
+    "nodemon": "^1.18.4",
     "react": "^16.5.2",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
@@ -14,6 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "nodemon —exec babel-node server/index.js",
     "build": "react-scripts build"
   },
   "eslintConfig": {
@@ -24,5 +31,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "dotenv": "^6.1.0"
+  }
 }
