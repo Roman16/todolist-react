@@ -9,13 +9,12 @@ const TodoList = (props) => {
         <div className='list-tasks'>
             {props.list.map((item, i) => (
                 <Card
-                    key={item.id}
+                    key={item._id}
                     index={i}
-                    id={item.id}
+                    id={item._id}
                     task={item}
                     done={item.done}
                     moveCard={props.moveCard}
-                    toggle={props.toggle}
                     edit={props.edit}
                     rm={props.rm}
                 />

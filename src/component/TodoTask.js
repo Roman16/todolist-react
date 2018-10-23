@@ -57,14 +57,14 @@ class TodoTask extends Component {
     };
 
     check = () => {
-        this.props.toggle(this.props.index)
+        this.props.edit(this.props.id,'', true)
     };
 
     editTask = () => {
         this.setState({task: this.props.task.title});
 
         if (this.state.isEditing) {
-            this.props.edit(this.props.index, this.state.task);
+            this.props.edit(this.props.id, this.state.task);
             this.setState({isEditing: !this.state.isEditing})
         } else {
             this.setState({isEditing: !this.state.isEditing})
@@ -72,7 +72,7 @@ class TodoTask extends Component {
     };
 
     deleteTask = () => {
-        this.props.rm(this.props.index);
+        this.props.rm(this.props.id);
     };
 
     renderTask() {

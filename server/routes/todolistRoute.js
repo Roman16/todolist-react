@@ -5,6 +5,9 @@ const todolistRoutes = express.Router();
 
 todolistRoutes
     .get("/", controller.index)
-    .post("/", controller.create);
+    .post("/", controller.create)
+    .delete("/", controller.destroy)
+    .put("/", controller.update)
+    .post("/moveCard", controller.moveCard)
 
 module.exports = todolistRoutes;

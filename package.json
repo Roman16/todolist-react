@@ -9,14 +9,16 @@
     "express": "^4.16.4",
     "immutability-helper": "^2.8.1",
     "lodash.flow": "^3.5.0",
-    "mongose": "0.0.2-security",
+    "mongoose": "^5.3.5",
     "node-sass": "^4.9.4",
     "nodemon": "^1.18.4",
     "react": "^16.5.2",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.5.2",
-    "react-scripts": "2.0.5"
+    "react-scripts": "2.0.5",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

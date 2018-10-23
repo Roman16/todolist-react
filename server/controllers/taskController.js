@@ -3,90 +3,60 @@ const Todolist = require("../models/taskModels");
 const controller = {};
 
 controller.index = (req, res) => {
-    // Todolist.findAll()
-    //     .then(todolist => {
-            res.json({
-                data: [{
-                    id: 343535,
-                    title: 'qfffewfe',
-                    done: false
-                }],
-            });
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        //     res.status(400).json({ message: "400", err });
-        // });
-};
-
-controller.show = (req, res) => {
-    Todolist.findById(req.params.id)
+    Todolist.find()
         .then(todolist => {
-            res.json({
-                message: "ok",
-                data: { todolist },
-            });
+            res.json(todolist);
         })
         .catch(err => {
-            res.status(400).json({ message: "400", err });
+            console.log(err);
+            res.status(400).json({message: "400", err});
         });
 };
 
 controller.create = (req, res) => {
-    Todolist.findLength().then(len => {
-        Todolist.create({
-            content: req.body.content,
-            position: Number(len[0].count) + 1,
+    let data = new Todolist(req.body);
+    data.save()
+        .then(task => {
+            res.json({message: "ok", task});
         })
-            .then(todolist => {
-                res.json({ message: "ok", data: { todolist } });
-            })
-            .catch(err => {
-                console.log(err);
-                res.status(400).json({ message: "400", err });
-            });
-    });
+        .catch(err => {
+            console.log(err);
+            res.status(400).json({message: "400", err});
+        });
 };
 
 controller.update = (req, res) => {
-    Todolist.update(
-        {
-            content: req.body.content,
-            checked: req.body.checked,
-        },
-        req.params.id
-    )
-        .then(todolist => {
-            res.json({
-                message: "ok",
-                data: { todolist },
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
-};
-
-controller.updateOrder = (req, res) => {
-    let itemsId = req.body.itemsId;
-    for (let i = 0; i < itemsId.length; i++) {
-        Todolist.updateOrder({
-            index: i,
-            id: itemsId[i],
-        });
-    }
+    Todolist.findOneAndUpdate({_id: req.body._id}, {
+        $set: {
+            title: req.body.title,
+            done: req.body.done
+        }
+    }, {new: true}, (err, doc) => {
+        if (err) {
+            return err
+        }
+        res.sendStatus(200)
+    });
 };
 
 controller.destroy = (req, res) => {
-    Todolist.destroy(req.params.id)
-        .then(() => {
-            res.json({ message: "To Do Deleted" });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
+    Todolist.findOneAndDelete({_id: req.body.id}, (err, doc) => {
+        if (err) {
+            return err
+        }
+        res.sendStatus(200)
+    })
+};
+
+controller.moveCard = (req, res) => {
+    Todolist.remove({}, (err, doc) => {
+        if (err) {
+            return err
+        }
+        Todolist.create(req.body)
+        res.sendStatus(200)
+
+    })
 };
 
 module.exports = controller;
